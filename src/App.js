@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import 'normalize.css/normalize.css';
+import './css/App.css';
 
 import ImageContainer from './Components/ImageContainer';
 import About from './Components/About';
