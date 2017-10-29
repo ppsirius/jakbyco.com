@@ -30,9 +30,19 @@ export default class Canvas extends Component {
     this.frame = requestAnimationFrame(this.animate);
   }
 
+  drawRectOverlay = () => {
+    this.rect = new PIXI.Graphics();
+    this.rect.beginFill(0x334455, 0.5);
+    this.rect.drawRect(0, 0, this.canvasWidth, this.canvasHeight);
+    this.stage.addChild(this.rect);
+  }
+
   imageSetup = () => {
     this.image = new PIXI.Sprite(PIXI.loader.resources[canvasImage].texture);
     this.stage.addChild(this.image);
+
+    // Rect overlay
+    this.drawRectOverlay();
 
     this.image.position.x = 0;
     this.image.position.y = 0;

@@ -1,3 +1,27 @@
-body {
-  font-family: 'Poppins', sans-serif;
+html {
+  width: 100%;
+  height: 100%;
 }
+
+.app {
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (min-device-width: 1025px) {
+  .app {
+    overflow: auto;
+    color: #334455;
+  }
+}
+
+.headline {
+  font-family: 'Playfair Display', serif;
+}
+

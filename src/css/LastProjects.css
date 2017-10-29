@@ -1,0 +1,9 @@
+.last-projects {
+  display: none;
+}
+
+@media screen and (min-device-width: 1025px) {
+  .last-projects {
+    display: block;
+  }
+}

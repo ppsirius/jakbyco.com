@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import '../css/LastProjects.css';
 
 class LastProjects extends Component {
   render () {
     return (
-      <div>
+      <div className="last-projects">
         Last projects
       </div>
     )
