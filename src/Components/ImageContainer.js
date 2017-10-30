@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Canvas from './Canvas';
-
+import Logo from './Logo';
 import SocialContainer from './SocialContainer';
 import '../css/ImageContainer.css'
 
@@ -9,9 +9,7 @@ class ImageContainer extends Component {
     return (
       <div className="image-container">
         <Canvas />
-        <div className="logo">
-          logo
-        </div>
+        <Logo />
         <SocialContainer />
       </div>
     )

@@ -14,14 +14,15 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media screen and (min-device-width: 1025px) {
-  .app {
-    overflow: auto;
-    color: #334455;
-  }
-}
-
 .headline {
   font-family: 'Playfair Display', serif;
+  line-height: 1.2;
 }
 
+@media screen and (min-width: 1025px) {
+  .app {
+    color: #334455;
+    font-size: 16px;
+  }
+
+}

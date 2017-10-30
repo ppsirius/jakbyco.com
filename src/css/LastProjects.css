@@ -2,8 +2,15 @@
   display: none;
 }
 
-@media screen and (min-device-width: 1025px) {
+
+@media screen and (min-width: 1025px) {
   .last-projects {
-    display: block;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 100vh;
+    left: 50%;
   }
 }
