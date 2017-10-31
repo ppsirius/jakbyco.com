@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
+import Content from '../content.json';
 import '../css/LastProjects.css';
 
 class LastProjects extends Component {
+
   render () {
     return (
       <div className="last-projects">
         <div className="last-project-container">
-          <h2>
+          <h2 className="headline last-project-headline">
             Last projects:
           </h2>
           <ul className="projects-list">
-            <li className="project-element">
-              <a href="#" className="project-wrapper">
-                <h3 className="project-title">
-                  goodfoods
-                </h3>
-                <span className="project-description">
-                  Maecenas vel tellus a urna maximus sagittis. Aenean gravida sodales mi, in fringilla metus fringilla sed. Ut aliquet, orci eget fermentum consectetur.
-                </span>
-              </a>
-            </li>
+            {Content.projects.map(item => {
+              return (
+                <li className="project-element">
+                  <a href={item.link} className="project-container">
+                    <h3 className="headline project-title">
+                      {item.title}
+                    </h3>
+                    <span className="project-description">
+                      {item.description}
+                    </span>
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </div>
 

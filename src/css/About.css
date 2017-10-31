@@ -49,6 +49,10 @@
   fill: #ffffff;
 }
 
+.scroll-down {
+  display: none;
+}
+
 @media screen and (min-width: 1025px) {
   .about {
     position: relative;
@@ -89,6 +93,15 @@
 
   .about-info-icon g {
     fill: #334455;
+  }
+
+  .scroll-down {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 30px;
+    bottom: 40px;
+    left: 50%;
   }
 
 }

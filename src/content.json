@@ -1,0 +1,37 @@
+{
+  "about": {
+    "motto": "Coding nice things makes me happy.",
+    "text": "Hi, I’m Piotrek, a Frontend Developer. <br />I enjoy the technology innovations,<br/> motion, UI and typography.",
+    "place1": "in Warsaw",
+    "place2": "in Samsung R&D Poland",
+    "place3": "at Akademia Gorilla",
+    "place3link": "https://web.facebook.com/GorilaAcademia/"
+  },
+  "projects": [
+    {
+      "title": "goodfoods",
+      "link": "#",
+      "description": "Maecenas vel tellus a urna maximus sagittis. Aenean gravida sodales mi, in fringilla metus fringilla sed. Ut aliquet, orci eget fermentum consectetur."
+    },
+    {
+      "title": "goodfoods",
+      "link": "#",
+      "description": "Maecenas vel tellus a urna maximus sagittis. Aenean gravida sodales mi, in fringilla metus fringilla sed. Ut aliquet, orci eget fermentum consectetur."
+    },
+    {
+      "title": "goodfoods",
+      "link": "#",
+      "description": "Maecenas vel tellus a urna maximus sagittis. Aenean gravida sodales mi, in fringilla metus fringilla sed. Ut aliquet, orci eget fermentum consectetur."
+    },
+    {
+      "title": "goodfoods",
+      "link": "#",
+      "description": "Maecenas vel tellus a urna maximus sagittis. Aenean gravida sodales mi, in fringilla metus fringilla sed. Ut aliquet, orci eget fermentum consectetur."
+    },
+    {
+      "title": "goodfoods",
+      "link": "#",
+      "description": "Maecenas vel tellus a urna maximus sagittis. Aenean gravida sodales mi, in fringilla metus fringilla sed. Ut aliquet, orci eget fermentum consectetur."
+    }
+  ]
+}

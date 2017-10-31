@@ -10,7 +10,44 @@
     justify-content: center;
     align-items: center;
     width: 50vw;
-    height: 100vh;
     left: 50%;
+    margin: 30vh 0 30vh 0;
   }
+
+  .last-project-container {
+    max-width: 440px;
+  }
+
+  .project-container {
+    text-decoration: none;
+    color: #334455;
+  }
+
+  .last-project-headline {
+    display: inline-block;
+    font-size: 34px;
+    margin: 0 0 50px 0;
+  }
+
+  .projects-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .project-element {
+    list-style: none;
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .project-title {
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-size: 24px;
+  }
+
+  .project-description {
+    line-height: 1.5;
+  }
+
 }
