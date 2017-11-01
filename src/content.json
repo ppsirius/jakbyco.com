@@ -1,7 +1,11 @@
 {
   "about": {
-    "motto": "Coding nice things makes me happy.",
-    "text": "Hi, I’m Piotrek, a Frontend Developer. <br />I enjoy the technology innovations,<br/> motion, UI and typography.",
+    "motto1": "Coding nice things",
+    "motto2": "makes me happy.",
+    "text1": "Hi, I’m Piotrek, a Frontend Developer.",
+    "text2": "I enjoy the technology innovations,",
+    "text3": "motion, UI and typography.",
+    "text4": "",
     "place1": "in Warsaw",
     "place2": "in Samsung R&D Poland",
     "place3": "at Akademia Gorilla",

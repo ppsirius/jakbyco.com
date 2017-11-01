@@ -12,20 +12,18 @@ class LastProjects extends Component {
             Last projects:
           </h2>
           <ul className="projects-list">
-            {Content.projects.map(item => {
-              return (
-                <li className="project-element">
-                  <a href={item.link} className="project-container">
-                    <h3 className="headline project-title">
-                      {item.title}
-                    </h3>
-                    <span className="project-description">
-                      {item.description}
-                    </span>
-                  </a>
-                </li>
-              )
-            })}
+            {Content.projects.map((item, index) =>
+              <li className="project-element" key={index}>
+                <a href={item.link} className="project-container">
+                  <h3 className="headline project-title">
+                    {item.title}
+                  </h3>
+                  <span className="project-description">
+                    {item.description}
+                  </span>
+                </a>
+              </li>
+            )}
           </ul>
         </div>
 

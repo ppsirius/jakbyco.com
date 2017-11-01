@@ -28,11 +28,15 @@
 }
 
 .about-info-element {
-  display: flex;
-  align-items: center;
   list-style: none;
   margin-bottom: 10px;
 }
+
+.about-info-element .hidden-text {
+  display: flex;
+  align-items: center;
+}
+
 
 .about-info-place {
   color: #fff;
@@ -99,9 +103,23 @@
     position: absolute;
     display: block;
     width: 20px;
-    height: 30px;
-    bottom: 40px;
+    height: 32px;
+    bottom: 60px;
     left: 50%;
+    overflow: hidden;
+  }
+
+  .scroll-down animate {
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translete3d(0, 0, 0)
+    }
+    100% {
+      transform: translete3d(0, -30px, 0)
+    }
   }
 
 }

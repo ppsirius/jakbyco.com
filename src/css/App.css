@@ -19,6 +19,14 @@ html {
   line-height: 1.2;
 }
 
+.hidden-text-container {
+  overflow: hidden;
+}
+
+.hidden-text {
+  display: inline-block;
+}
+
 @media screen and (min-width: 1025px) {
   .app {
     color: #334455;
@@ -26,3 +34,5 @@ html {
   }
 
 }
+
+

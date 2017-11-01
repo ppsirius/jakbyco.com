@@ -9,6 +9,7 @@ const imageHeight = 3264;
 export default class Canvas extends Component {
 
   componentDidMount() {
+    PIXI.utils.skipHello();
     this.canvasHeight = window.innerHeight;
     this.canvasWidth = window.innerWidth;
 
