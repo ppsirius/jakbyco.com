@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as PIXI from "pixi.js"
+import { TweenMax, Power2 } from "gsap";
 import '../css/Canvas.css';
 
 const canvasImage = '/images/canvas-image.jpg';
@@ -9,6 +10,15 @@ const imageHeight = 3264;
 export default class Canvas extends Component {
 
   componentDidMount() {
+    // Canvas overlay
+
+    setTimeout(() => {
+      TweenMax.to(this.refs.canvasOverlay, 1, {x: '-100%', ease: Power2.easeOut})
+    }, 3000)
+
+
+
+    // Pixi setup
     PIXI.utils.skipHello();
     this.canvasHeight = window.innerHeight;
     this.canvasWidth = window.innerWidth;
@@ -65,7 +75,9 @@ export default class Canvas extends Component {
 
   render() {
     return (
-      <div className="canvas-container" ref="canvasContainer"></div>
+      <div className="canvas-container" ref="canvasContainer">
+        <div className="canvas-overlay" ref="canvasOverlay"></div>
+      </div>
     );
   }
 
