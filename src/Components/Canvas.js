@@ -10,11 +10,6 @@ const imageHeight = 3264;
 export default class Canvas extends Component {
 
   componentDidMount() {
-    // Canvas overlay
-
-    setTimeout(() => {
-      TweenMax.to(this.refs.canvasOverlay, 1, {x: '-100%', ease: Power2.easeOut})
-    }, 3000)
 
 
 
@@ -61,8 +56,8 @@ export default class Canvas extends Component {
     this.imageRatio = imageWidth / imageHeight;
     this.stageRatio = this.canvasWidth / this.canvasHeight;
 
-    console.log(this.imageRatio + ' image ratio')
-    console.log(this.stageRatio + ' stage ratio')
+    // console.log(this.imageRatio + ' image ratio')
+    // console.log(this.stageRatio + ' stage ratio')
 
     if (this.stageRatio > this.imageRatio) {
       this.image.height = imageHeight / (imageWidth / this.canvasWidth);
@@ -74,6 +69,18 @@ export default class Canvas extends Component {
   }
 
   render() {
+    // Canvas overlay
+    setTimeout(() => {
+      TweenMax.to(this.refs.canvasOverlay, 1, {
+        x: '-100%',
+        ease: Power2.easeOut,
+        onComplete: function() {
+          window.dispatchEvent(new Event('animationCanvasComplete'));
+          console.log('canvas motion complete')
+        }
+      })
+    }, 3000)
+
     return (
       <div className="canvas-container" ref="canvasContainer">
         <div className="canvas-overlay" ref="canvasOverlay"></div>

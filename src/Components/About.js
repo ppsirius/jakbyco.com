@@ -4,8 +4,17 @@ import Content from '../content.json';
 import { TweenMax, Power2 } from "gsap";
 
 class About extends Component {
+  constructor(props) {
+    super(props)
+
+    window.addEventListener('animationCanvasComplete', () => this.aniamtionInit())
+  }
 
   componentDidMount() {
+    this.animationSetup();
+  }
+
+  animationSetup = () => {
     // Motto elements
     this.mottoHeight = this.refs.motto1.getBoundingClientRect().height;
     this.mottoElements = [this.refs.motto1, this.refs.motto2];
@@ -24,42 +33,40 @@ class About extends Component {
     //Scroll down
     this.scrollDownHeight = this.refs.scrollDown.getBoundingClientRect().height;
 
-
     // Setup hide elements
     TweenMax.set(this.mottoElements, {y: this.mottoHeight})
     TweenMax.set(this.refs.aboutSeparator, {width: 0});
     TweenMax.set(this.textElements, {y: this.textHeight})
     TweenMax.set(this.placeElements, {y: this.placeHeight})
+
     //Scroll Down
     TweenMax.set(this.refs.scrollDownIcon, {y: this.scrollDownHeight})
-    console.log(this.refs.scrollDown)
-    // Start about animation
+  }
+
+  aniamtionInit = () => {
+    // About content animate
+    TweenMax.staggerTo(this.mottoElements, .5, {
+      ease: Power2.easeOut, y: 0,
+      onComplete: () => {
+        TweenMax.to(this.refs.aboutSeparator, .3, {width: '100%',
+          onComplete: () => {
+            TweenMax.staggerTo(this.textElements, .5, {
+              ease: Power2.easeOut, y: 0,
+              onComplete: () => {
+                TweenMax.staggerTo(this.placeElements, .5, {
+                  ease: Power2.easeOut, y: 0
+                }, .2)
+              }
+            }, .2)
+          }
+        })
+      }
+    }, .2);
+
+    // Scroll down button
     setTimeout(() => {
-      TweenMax.staggerTo(this.mottoElements, .5, {
-        ease: Power2.easeOut, y: 0,
-        onComplete: () => {
-          TweenMax.to(this.refs.aboutSeparator, .3, {width: '100%',
-            onComplete: () => {
-              TweenMax.staggerTo(this.textElements, .5, {
-                ease: Power2.easeOut, y: 0,
-                onComplete: () => {
-                  TweenMax.staggerTo(this.placeElements, .5, {
-                    ease: Power2.easeOut, y: 0
-                  }, .2)
-                }
-              }, .2)
-            }
-          })
-        }
-
-      }, .2);
-    // finish set Timeout
-    }, 2000)
-
-
-    // Scroll Down animation
-    setTimeout(() => {
-      TweenMax.to(this.refs.scrollDownIcon, .3, {y: 0,
+      TweenMax.to(this.refs.scrollDownIcon, .3, {
+        y: 0,
         onComplete: () => {
           this.refs.scrollDown.classList.add('animate');
         }
