@@ -21,6 +21,7 @@
   width: 15px;
   height: 15px;
   margin-right: 24px;
+  overflow: hidden;
 }
 
 .social-icon-container:last-child{

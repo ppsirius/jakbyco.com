@@ -7,7 +7,7 @@ class About extends Component {
   constructor(props) {
     super(props)
 
-    window.addEventListener('animationCanvasComplete', () => this.aniamtionInit())
+    window.addEventListener('animationCanvasComplete', () => this.animationInit())
   }
 
   componentDidMount() {
@@ -43,7 +43,7 @@ class About extends Component {
     TweenMax.set(this.refs.scrollDownIcon, {y: this.scrollDownHeight})
   }
 
-  aniamtionInit = () => {
+  animationInit = () => {
     // About content animate
     TweenMax.staggerTo(this.mottoElements, .5, {
       ease: Power2.easeOut, y: 0,
