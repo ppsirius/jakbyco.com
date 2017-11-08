@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import '../css/About.css';
+import { TweenMax } from "gsap";
+import { animation } from '../Helpers/AnimationVariable';
 import Content from '../content.json';
-import { TweenMax, Power2 } from "gsap";
+import '../css/About.css';
 
 class About extends Component {
   constructor(props) {
@@ -45,33 +46,38 @@ class About extends Component {
 
   animationInit = () => {
     // About content animate
-    TweenMax.staggerTo(this.mottoElements, .5, {
-      ease: Power2.easeOut, y: 0,
+    TweenMax.staggerTo(this.mottoElements, animation.duration, {
+      y: animation.valueY,
+      ease: animation.ease,
       onComplete: () => {
-        TweenMax.to(this.refs.aboutSeparator, .3, {width: '100%',
+        TweenMax.to(this.refs.aboutSeparator, animation.duration, {
+          width: '100%',
+          ease: animation.ease,
           onComplete: () => {
-            TweenMax.staggerTo(this.textElements, .5, {
-              ease: Power2.easeOut, y: 0,
+            TweenMax.staggerTo(this.textElements, animation.duration, {
+              y: animation.valueY,
+              ease: animation.ease,
               onComplete: () => {
-                TweenMax.staggerTo(this.placeElements, .5, {
-                  ease: Power2.easeOut, y: 0
-                }, .2)
+                TweenMax.staggerTo(this.placeElements, animation.duration, {
+                  y: animation.valueY,
+                  ease: animation.ease
+                }, animation.staggerTime)
               }
-            }, .2)
+            }, animation.staggerTime)
           }
         })
       }
-    }, .2);
+    }, animation.staggerTime);
 
     // Scroll down button
     setTimeout(() => {
-      TweenMax.to(this.refs.scrollDownIcon, .3, {
-        y: 0,
+      TweenMax.to(this.refs.scrollDownIcon, animation.duration, {
+        y: animation.valueY,
         onComplete: () => {
           this.refs.scrollDown.classList.add('animate');
         }
       })
-    }, 5000)
+    }, 4000)
 
   }
 

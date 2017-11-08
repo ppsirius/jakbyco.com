@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import * as PIXI from "pixi.js"
-import { TweenMax, Power2 } from "gsap";
+import * as PIXI from 'pixi.js'
+import { TweenMax, Power2 } from 'gsap';
+import MediaQuery from '../Helpers/MediaQuery';
 import '../css/Canvas.css';
 
 const canvasImage = '/images/canvas-image.jpg';
@@ -12,12 +13,15 @@ export default class Canvas extends Component {
   componentDidMount() {
     this.pixiSetup();
     this.pixiAnimate();
+
+
+    this.canvasOverlayAnimation();
   }
 
   pixiSetup = () => {
     PIXI.utils.skipHello();
-    this.canvasHeight = window.innerHeight; // @TODO switch for mobile and desktop
-    this.canvasWidth = window.innerWidth / 2;
+    this.canvasHeight = window.innerHeight;
+    this.canvasWidth = MediaQuery.isMobile() ? window.innerWidth : window.innerWidth / 2;
 
     this.renderer = PIXI.autoDetectRenderer(this.canvasWidth, this.canvasHeight);
     this.renderer.backgroundColor = 0xFFFFFF;
@@ -33,7 +37,6 @@ export default class Canvas extends Component {
     this.renderer.render(this.stage);
     this.frame = requestAnimationFrame(this.pixiAnimate);
 
-    this.canvasOverlayAnimation();
   }
 
   pixiRectOverlay = () => {
@@ -67,16 +70,16 @@ export default class Canvas extends Component {
 
   canvasOverlayAnimation = () => {
     // @TODO chenge this timeout to pixi finish render
+
     setTimeout(() => {
-      TweenMax.to(this.refs.canvasOverlay, 1, {
-        x: '-100%',
-        ease: Power2.easeOut,
-        onComplete: function() {
-          console.log('complere canvas')
+      TweenMax.to(this.refs.canvasOverlay, 1.5, {
+        x: '100%',
+        onComplete: () => {
           window.dispatchEvent(new Event('animationCanvasComplete'));
         }
       })
-    }, 1000)
+    }, 1000 )
+
   }
 
   render() {

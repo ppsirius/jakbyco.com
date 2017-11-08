@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { TweenMax } from "gsap";
+import { animation } from '../Helpers/AnimationVariable';
 import '../css/SocialContainer.css';
-import { TweenMax, Power2 } from "gsap";
 
 class SocialContainer extends Component {
   constructor(props) {
@@ -30,16 +31,16 @@ class SocialContainer extends Component {
   }
 
   animationInit() {
-    TweenMax.to(this.refs.iconSeparator, .3, {
-      ease: Power2.easeOut,
+    TweenMax.to(this.refs.iconSeparator, animation.duration, {
+      ease: animation.ease,
       width: '100%',
       onComplete: () => {
-        TweenMax.staggerTo(this.icons, .5, {
-          ease: Power2.easeOut, y: 0,
-        }, .1);
+        TweenMax.staggerTo(this.icons, animation.duration, {
+          y: animation.valueY,
+          ease: animation.ease
+        }, animation.staggerTime);
       }
     })
-
   }
 
   render () {
