@@ -8,7 +8,12 @@ class About extends Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      scrollDownIsShowed: false
+    }
+
     window.addEventListener('animationCanvasComplete', () => this.animationInit())
+    window.addEventListener('scroll', () => this.hideScroll());
   }
 
   componentDidMount() {
@@ -70,15 +75,32 @@ class About extends Component {
     }, animation.staggerTime);
 
     // Scroll down button
-    setTimeout(() => {
+    if(!this.state.scrollDownIsShowed) {
+      setTimeout(() => {
+        TweenMax.to(this.refs.scrollDownIcon, animation.duration, {
+          y: animation.valueY,
+          onComplete: () => {
+            setTimeout(() => {
+              this.refs.scrollDown.classList.add('animate');
+            }, 300);
+          }
+        })
+      }, 3000)
+    }
+
+  }
+
+  hideScroll = () => {
+    this.setState( {scrollDownIsShowed: true} )
+
+    if(this.state.scrollDownIsShowed) {
       TweenMax.to(this.refs.scrollDownIcon, animation.duration, {
-        y: animation.valueY,
+        y: this.scrollDownHeight + 10,
         onComplete: () => {
-          this.refs.scrollDown.classList.add('animate');
+          this.setState( {scrollDownIsShowed: false} )
         }
       })
-    }, 4000)
-
+    }
   }
 
   render () {

@@ -109,16 +109,19 @@
     overflow: hidden;
   }
 
-  .scroll-down animate {
-    animation: pulse 1s infinite;
+  .scroll-down.animate {
+    animation: pulse 2s infinite;
   }
 
   @keyframes pulse {
-    0% {
-      transform: translete3d(0, 0, 0)
+    0%   {
+      transform: translateY(0px);
+    }
+    60% {
+      transform: translateY(20px);
     }
     100% {
-      transform: translete3d(0, -30px, 0)
+      transform: translateY(0px);
     }
   }
 
