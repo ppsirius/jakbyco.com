@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as PIXI from 'pixi.js'
-import { TweenMax, Power2 } from 'gsap';
+import { TweenMax } from 'gsap';
 import MediaQuery from '../Helpers/MediaQuery';
 import '../css/Canvas.css';
 
@@ -13,7 +13,6 @@ export default class Canvas extends Component {
   componentDidMount() {
     this.pixiSetup();
     this.pixiAnimate();
-
 
     this.canvasOverlayAnimation();
   }
