@@ -5,13 +5,19 @@ import MediaQuery from '../Helpers/MediaQuery';
 import '../css/Canvas.css';
 
 const canvasImage = '/images/canvas-image.jpg';
+const filterTexture = '/images/clouds.jpg';
 const imageWidth = 2448;
 const imageHeight = 3264;
+const marginMove = 40;
+
+const displacementSprite  = new PIXI.Sprite.fromImage( filterTexture );
+const displacementFilter  = new PIXI.filters.DisplacementFilter( displacementSprite );
 
 export default class Canvas extends Component {
 
   componentDidMount() {
     this.pixiSetup();
+    this.displacementFilter();
     this.pixiAnimate();
 
     this.canvasOverlayAnimation();
@@ -33,15 +39,20 @@ export default class Canvas extends Component {
   }
 
   pixiAnimate = () => {
-    this.renderer.render(this.stage);
-    this.frame = requestAnimationFrame(this.pixiAnimate);
+    this.ticker = new PIXI.ticker.Ticker();
+    this.ticker.autoStart = true;
+    this.ticker.add( (delta) => {
+      displacementSprite.x += 10 * delta;
+      displacementSprite.y += 3;
 
+      this.renderer.render(this.stage);
+    });
   }
 
   pixiRectOverlay = () => {
     this.rect = new PIXI.Graphics();
     this.rect.beginFill(0x334455, 0.5);
-    this.rect.drawRect(0, 0, this.canvasWidth, this.canvasHeight);
+    this.rect.drawRect(- marginMove, - marginMove, this.canvasWidth + (2 * marginMove), this.canvasHeight + (2 * marginMove));
     this.stage.addChild(this.rect);
   }
 
@@ -49,22 +60,29 @@ export default class Canvas extends Component {
     this.image = new PIXI.Sprite(PIXI.loader.resources[canvasImage].texture);
     this.stage.addChild(this.image);
 
+    // Calculate ratio - image cover
+    this.greaterRatio = Math.max(this.canvasWidth / imageWidth, this.canvasHeight / imageHeight);
+    this.greaterRatioIncrease = this.greaterRatio * 1.1;
+    this.image.scale.set(this.greaterRatioIncrease, this.greaterRatioIncrease)
+
+    // Image position
+    this.image.position.x = - this.greaterRatioIncrease * 100;
+    this.image.position.y = - this.greaterRatioIncrease * 100;
+
     // Rect overlay
-    this.pixiRectOverlay();
-
-    this.image.position.x = 0;
-    this.image.position.y = 0;
-
-    this.imageRatio = imageWidth / imageHeight;
-    this.stageRatio = this.canvasWidth / this.canvasHeight;
-
-    if (this.stageRatio > this.imageRatio) {
-      this.image.height = imageHeight / (imageWidth / this.canvasWidth);
-      this.image.width = this.canvasWidth;
-    } else {
-      this.image.width = imageWidth / (imageHeight / this.canvasHeight);
-      this.image.height = this.canvasHeight;
+    if(MediaQuery.isMobile()) {
+      this.pixiRectOverlay();
     }
+  }
+
+  displacementFilter = () => {
+    displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+    displacementSprite.scale.x = 2;
+    displacementSprite.scale.y = 2;
+    displacementFilter.autoFit = true;
+
+    this.stage.filters = [displacementFilter];
+    this.stage.addChild( displacementSprite );
   }
 
   canvasOverlayAnimation = () => {
