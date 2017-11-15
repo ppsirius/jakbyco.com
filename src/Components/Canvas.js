@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as PIXI from 'pixi.js'
 import { TweenMax } from 'gsap';
 import MediaQuery from '../Helpers/MediaQuery';
+import { randomNumber } from '../Helpers/RandomNumber';
+import { animation } from '../Helpers/AnimationVariable';
 import '../css/Canvas.css';
 
 const canvasImage = '/images/canvas-image.jpg';
@@ -14,6 +16,12 @@ const displacementSprite  = new PIXI.Sprite.fromImage( filterTexture );
 const displacementFilter  = new PIXI.filters.DisplacementFilter( displacementSprite );
 
 export default class Canvas extends Component {
+  constructor(props) {
+    super(props)
+
+    this.isFilterAnimating = false;
+    window.addEventListener('scroll', () => this.filterAnimate());
+  }
 
   componentDidMount() {
     this.pixiSetup();
@@ -83,11 +91,39 @@ export default class Canvas extends Component {
 
     this.stage.filters = [displacementFilter];
     this.stage.addChild( displacementSprite );
+
+    this.initFilterValues = {
+      x: displacementFilter.scale.x,
+      y: displacementFilter.scale.y
+    }
+  }
+
+  filterAnimate = () => {
+    if(!this.isFilterAnimating) {
+      this.isFilterAnimating = true;
+      TweenMax
+        .to(displacementFilter.scale, .5, {
+          x: randomNumber(150, 200),
+          y: randomNumber(60, 90),
+            onComplete: () => {
+              TweenMax.to(displacementFilter.scale, 1, {
+                x: this.initFilterValues.x,
+                y: this.initFilterValues.y,
+                  ease: animation.ease,
+                  onComplete: () => {
+                    setTimeout( () => {
+                      this.isFilterAnimating = false;
+                    }, 2000)
+                  }
+                }
+              )
+            }
+          }
+      )
+    }
   }
 
   canvasOverlayAnimation = () => {
-    // @TODO chenge this timeout to pixi finish render
-
     setTimeout(() => {
       TweenMax.to(this.refs.canvasOverlay, 1.5, {
         x: '100%',
@@ -96,7 +132,6 @@ export default class Canvas extends Component {
         }
       })
     }, 1000 )
-
   }
 
   render() {
