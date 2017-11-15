@@ -28,7 +28,6 @@ export default class Canvas extends Component {
     this.displacementFilter();
     this.pixiAnimate();
 
-    this.canvasOverlayAnimation();
   }
 
   pixiSetup = () => {
@@ -43,7 +42,13 @@ export default class Canvas extends Component {
     this.stage.width = this.canvasWidth;
     this.stage.height = this.canvasHeight;
 
-    PIXI.loader.add(canvasImage).load(this.pixiImageSetup);
+    this.loader = PIXI.loader;
+    this.loader.add(canvasImage);
+    this.loader.once('complete', () => {
+      console.log('done')
+      this.canvasOverlayAnimation();
+    })
+    this.loader.load(this.pixiImageSetup);
   }
 
   pixiAnimate = () => {
@@ -131,7 +136,7 @@ export default class Canvas extends Component {
           window.dispatchEvent(new Event('animationCanvasComplete'));
         }
       })
-    }, 1000 )
+    }, 100 )
   }
 
   render() {
