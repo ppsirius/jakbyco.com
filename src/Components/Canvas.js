@@ -44,8 +44,8 @@ export default class Canvas extends Component {
 
     this.loader = PIXI.loader;
     this.loader.add(canvasImage);
+    // Run animation after image loaded
     this.loader.once('complete', () => {
-      console.log('done')
       this.canvasOverlayAnimation();
     })
     this.loader.load(this.pixiImageSetup);
@@ -58,6 +58,7 @@ export default class Canvas extends Component {
       displacementSprite.x += 10 * delta;
       displacementSprite.y += 3;
 
+      console.log(this.stage)
       this.renderer.render(this.stage);
     });
   }
@@ -107,7 +108,7 @@ export default class Canvas extends Component {
     if(!this.isFilterAnimating) {
       this.isFilterAnimating = true;
       TweenMax
-        .to(displacementFilter.scale, .5, {
+        .to(displacementFilter.scale, 2, {
           x: randomNumber(150, 200),
           y: randomNumber(60, 90),
             onComplete: () => {
@@ -133,7 +134,7 @@ export default class Canvas extends Component {
       TweenMax.to(this.refs.canvasOverlay, 1.5, {
         x: '100%',
         onComplete: () => {
-          window.dispatchEvent(new Event('animationCanvasComplete'));
+
         }
       })
     }, 100 )

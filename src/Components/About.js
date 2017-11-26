@@ -12,7 +12,7 @@ class About extends Component {
       scrollDownIsShowed: false
     }
 
-    window.addEventListener('animationCanvasComplete', () => this.animationInit())
+    window.addEventListener('animationImageComplete', () => this.animationInit())
     window.addEventListener('scroll', () => this.hideScroll());
   }
 

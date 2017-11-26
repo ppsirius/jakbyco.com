@@ -7,7 +7,7 @@ class SocialContainer extends Component {
   constructor(props) {
     super(props)
 
-    window.addEventListener('animationCanvasComplete', () => this.animationInit())
+    window.addEventListener('animationImageComplete', () => this.animationInit())
   }
 
   componentDidMount() {
