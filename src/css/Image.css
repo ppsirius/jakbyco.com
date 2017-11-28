@@ -17,6 +17,13 @@
   content: '';
 }
 
+@media screen and (min-width: 1025px) {
+  .image:before {
+    background-color: #fff;
+    content: none;
+  }
+}
+
 .image img {
   width: 100%;
   height: 100%;

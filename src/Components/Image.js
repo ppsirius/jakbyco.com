@@ -10,7 +10,7 @@ class Image extends Component {
 
   animateOverlay = () => {
     TweenMax.to(this.refs.imageLine, 1, {y: '100%', delay: .3, ease: animation.ease,
-      onComplete: () => TweenMax.to(this.refs.imageRect, 1, {x: '-100%', ease: animation.ease,
+      onComplete: () => TweenMax.to(this.refs.imageRect, 1.5, {x: '-100%', ease: animation.ease,
         onComplete: () => window.dispatchEvent(new Event('animationImageComplete'))
       })
     })
