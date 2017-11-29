@@ -1,15 +1,20 @@
 {
-  "short_name": "jakbyco - Frontend Developer ",
-  "name": "Create React App Sample",
+  "short_name": "Portfolio",
+  "name": "jakbyco | Piotr Pupczyk Frontend Developer",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "192x192",
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#334455",
   "background_color": "#ffffff"
 }
