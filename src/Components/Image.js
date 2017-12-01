@@ -20,7 +20,9 @@ class Image extends Component {
     return (
       <div className="image">
         <img
-          src="/images/canvas-image.jpg"
+          src="/images/image-small.jpg"
+          srcSet="/images/image-large.jpg 1920w, /images/image-medium.jpg 960w, /images/image-small.jpg 400w"
+          sizes="(min-width: 1025px) 50vw, 100vw"
           alt="Waterfall in Norway"
           onLoad={this.imageLoaded}
         />
