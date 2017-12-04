@@ -1,22 +1,29 @@
-import React, { Component } from 'react';
-import { TweenMax } from 'gsap';
-import { animation } from '../Helpers/AnimationVariable';
-import '../css/Image.css';
+import React, { Component } from "react";
+import { TweenMax } from "gsap";
+import { animation } from "../Helpers/AnimationVariable";
+import "../css/Image.css";
 
 class Image extends Component {
   imageLoaded = () => {
     this.animateOverlay();
-  }
+  };
 
   animateOverlay = () => {
-    TweenMax.to(this.refs.imageLine, 1, {y: '100%', delay: .3, ease: animation.ease,
-      onComplete: () => TweenMax.to(this.refs.imageRect, 1.5, {x: '-100%', ease: animation.ease,
-        onComplete: () => window.dispatchEvent(new Event('animationImageComplete'))
-      })
-    })
-  }
+    TweenMax.to(this.refs.imageLine, 1, {
+      y: "100%",
+      delay: 0.3,
+      ease: animation.ease,
+      onComplete: () =>
+        TweenMax.to(this.refs.imageRect, 1.5, {
+          x: "-100%",
+          ease: animation.ease,
+          onComplete: () =>
+            window.dispatchEvent(new Event("animationImageComplete"))
+        })
+    });
+  };
 
-  render () {
+  render() {
     return (
       <div className="image">
         <img
@@ -26,10 +33,10 @@ class Image extends Component {
           alt="Waterfall in Norway"
           onLoad={this.imageLoaded}
         />
-        <div className="image-overlay image-line" ref="imageLine"></div>
-        <div className="image-overlay image-rect" ref="imageRect"></div>
+        <div className="image-overlay image-line" ref="imageLine" />
+        <div className="image-overlay image-rect" ref="imageRect" />
       </div>
-    )
+    );
   }
 }
 

@@ -1,8 +1,8 @@
-import React from 'react'
-import Logo from './Logo';
-import Image from './Image';
-import SocialContainer from './SocialContainer';
-import '../css/ImageContainer.css';
+import React from "react";
+import Logo from "./Logo";
+import Image from "./Image";
+import SocialContainer from "./SocialContainer";
+import "../css/ImageContainer.css";
 
 const ImageContainer = () => {
   return (
@@ -11,7 +11,7 @@ const ImageContainer = () => {
       <Logo />
       <SocialContainer />
     </div>
-  )
-}
+  );
+};
 
 export default ImageContainer;
