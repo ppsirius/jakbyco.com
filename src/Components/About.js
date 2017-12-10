@@ -32,7 +32,7 @@ class About extends Component {
 
     // Text
     this.textHeight = this.refs.text1.getBoundingClientRect().height;
-    this.textElements = [this.refs.text1, this.refs.text2, this.refs.text3];
+    this.textElements = [this.refs.text1, this.refs.text2, this.refs.text3, this.refs.text4];
 
     // Places
     this.placeHeight = this.refs.place1.getBoundingClientRect().height;
@@ -153,6 +153,11 @@ class About extends Component {
             <div className="hidden-text-container">
               <span className="hidden-text" ref="text3">
                 {Content.about.text3}
+              </span>
+            </div>
+            <div className="hidden-text-container">
+              <span className="hidden-text" ref="text4">
+                {Content.about.text4}
               </span>
             </div>
           </div>
