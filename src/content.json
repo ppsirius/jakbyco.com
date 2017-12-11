@@ -2,10 +2,10 @@
   "about": {
     "motto1": "Coding nice things",
     "motto2": "makes me happy.",
-    "text1": "Hi, I’m Piotrek, a Frontend Developer",
-    "text2": "with a Graphic background.",
-    "text3": "I enjoy the technology innovations.",
-    "text4": "Like good design and motion.",
+    "text1": "Hi, I'm Piotrek, I'm a Fontend Developer.",
+    "text2": "I have graphic desing background,",
+    "text3": "I am passionate about innovations,",
+    "text4": "I love good design and motion.",
     "place1": "in Warsaw",
     "place2": "in Samsung R&D Poland",
     "place3": "at Akademia Gorilla",
@@ -13,29 +13,34 @@
   },
   "projects": [
     {
-      "title": "Landing for Stanley Black & Decker",
-      "link": "http://wishyouwerehere.pl/",
-      "description": "The website for HR promotion action. Page have parallax, js validation on a form."
+      "title": "Wave effect on Canvas",
+      "link": "https://codepen.io/ppsirius/full/dZmxRE/",
+      "description": "Using pixi.js and checking its capabilities."
     },
     {
-      "title": "Minimal Portfolio",
+      "title": "Stanley Black & Decker Landing Page",
+      "link": "http://wishyouwerehere.pl/",
+      "description": "Due to recruitment & EB action, the landing page was dedicated to the potential candidates who are interested in working in the company. Using parallax and js validation form."
+    },
+    {
+      "title": "Minimalistic Portfolio",
       "link": "http://pariaszewski.com/",
-      "description": "Minimalistic site form my good friend. Basicly focus on lite motion and fast loading time."
+      "description": "Portfolio website for my good friend who is a big fan of minimalism. Key features of the site are motion lite and fast loading time."
     },
     {
       "title": "Boilerplate for Tizen TV App",
       "link": "https://github.com/ppsirius/tizen-boilerplate",
-      "description": "Useful boilerplate to fast create and deploy App on Tizen TV Platform."
+      "description": "Useful boilerplate for the fast creation and deploying App on Tizen TV Platform."
     },
     {
-      "title": "Landing and Shop for Hemp Company",
+      "title": "Hemp Company Landing Page & Shop",
       "link": "http://goodfoods.pl/",
-      "description": "Shop with good stuff. Products made from legal hemp and lots of healthy food."
+      "description": "Shop full of good stuff - products made from hemp and healthy food."
     },
     {
       "title": "SVG and CSS loader",
       "link": "https://codepen.io/ppsirius/pen/vKEeeq",
-      "description": "Tiny SVG loader before the main page for Absolvent.pl group product site."
+      "description": "The SVG loader with smooth CSS animation."
     }
   ]
 }
