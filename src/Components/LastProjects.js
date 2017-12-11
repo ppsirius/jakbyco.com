@@ -10,7 +10,7 @@ const LastProjects = () => {
         <ul className="projects-list">
           {Content.projects.map((item, index) => (
             <li className="project-element" key={index}>
-              <a href={item.link} className="project-container">
+              <a href={item.link} target="_blank" className="project-container">
                 <h3 className="headline project-title">{item.title}</h3>
                 <span className="project-description">{item.description}</span>
               </a>
