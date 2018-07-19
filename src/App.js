@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import "@babel/polyfill";
 import MediaQuery from "./Helpers/MediaQuery";
 import "normalize.css/normalize.css";
 import "./css/App.css";

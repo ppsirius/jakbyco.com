@@ -17,8 +17,16 @@ class Image extends Component {
         TweenMax.to(this.refs.imageRect, 1.5, {
           x: "-100%",
           ease: animation.ease,
-          onComplete: () =>
-            window.dispatchEvent(new Event("animationImageComplete"))
+          onComplete: () => {
+            // hack for IE
+            if (typeof Event === "function") {
+              window.dispatchEvent(new Event("animationImageComplete"));
+            } else {
+              const event = document.createEvent("HTMLEvents");
+              event.initEvent("animationImageComplete", true, true);
+              window.dispatchEvent(event);
+            }
+          }
         })
     });
   };
